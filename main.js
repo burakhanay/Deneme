@@ -10,6 +10,7 @@ const crypto = require("crypto");
 const mongoose = require("mongoose");
 const Blog = require("./DB_Models/db_model");
 const Signin = require("./DB_Models/db_signin");
+const res = require("express/lib/response");
 
 // Parse URL-encoded bodies (as sent by HTML forms)
 app.use(express.urlencoded({extended : false}));
@@ -133,6 +134,10 @@ app.post("/api/v1/login", async (req,res) =>{
         res.send(error);
     }
     
+});
+
+app.get("/admin", (req,res) => {
+    res.send("Welcome Admin Panel");
 });
 
 
