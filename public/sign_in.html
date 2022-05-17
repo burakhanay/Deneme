@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./jquery-3.6.0.js"></script>
+    <script src="./local_funcs.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <title>Post Page</title>
+</head>
+<body>
+    <h2 id="h2_1id" align="center" hidden >KAYIT OL</h2><br>
+    <p id="result" ></p>
+    <p id="serRes" hidden = "on">Değişecek</p>
+    <div id="container">
+        <form action="submit" align="left">
+            Ad : <br><input type="text" id="firstname" value = "" autocomplete="on"><br>
+            Soyad : <br><input type="text" id="lastname" value = "" autocomplete="on"><br>
+            Kullanıcı Adı : <br><input type="text" id="username" value = "" autocomplete="on"><br>
+            E-Mail : <br><input type="email" id="e-mail" value = "" autocomplete="on"><br>
+            Şifre : <br><input type="password" id="password1" autocomplete="on"><br>
+            Şifre Onay : <br><input type="password" id="password2" autocomplete="on"><br>
+            <div id="pswd_info">
+                <h4>Password must meet the following requirements:</h4>
+                <ul>
+                    <li id="special" class="invalid">At least <strong>one special character(.!@#$%^&*)</strong></li>
+                    <li id="capital" class="invalid">At least <strong>one capital letter</strong></li>
+                    <li id="number" class="invalid">At least <strong>one number</strong></li>
+                    <li id="length" class="invalid">Be at least <strong>8 characters</strong></li>
+                </ul>
+            </div>
+            <div id="pswd_error">
+                <h4>Passwords must be equal.</h4>
+            </div>
+            <div id="pswd_success">
+                <h4>Passwords are equal.</h4>
+            </div>
+            <input type="button" onclick="sign_in()" value="Kayıt Ol" id="kayit">
+    </div>
+    
+    </form>
+
+    
+</body>
+</html>

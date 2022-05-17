@@ -17,6 +17,10 @@ app.use(express.urlencoded({extended : false}));
 // Parse JSON bodies (as sent by API clients)
 app.use(express.json());
 
+app.set("view engine", "ejs");
+
+console.log(__dirname);
+
 const dbURL = "mongodb://127.0.0.1:27017/SocialMedia";
 mongoose.connect(dbURL, {useNewUrlParser: true, useUnifiedTopology: true})
     .then((result) => console.log("Bağlantı kuruldu"))
@@ -121,15 +125,34 @@ app.post("/api/v1/login", async (req,res) =>{
         let pass = req.body.Password;
         let hash = gen_sha512(user,pass);
         let DB_res = await DB_Search(user);
-        console.log(DB_res);
+        
+        
+        //console.log("DB_res tipi: "+typeof(DB_res[0]));
 
-        console.log("DB_res_p : " + DB_res[0].Password);
+        if((typeof(DB_res[0])) == "undefined"){
+            console.log("Kullanıcı bulunamadı");
+            //res.header("Access-Control-Allow-Origin", "*");
+            res.json({"Response" : "Kullanıcı adı veya şifre yanlış girilmiştir."} );
+        }
+        else{
+            console.log("DB_res_p : " + DB_res[0].Password);
 
-        let DB_hash = DB_res[0].Password;
-        let bool =  Hash_Check(hash,DB_hash);
-        console.log(bool);
+            let DB_hash = DB_res[0].Password;
+            //console.log(typeof(hash));
+            //console.log(typeof(DB_hash));
+            let bool =  Hash_Check(hash,DB_hash);
+            console.log(bool);
+            if(bool){
+                console.log("Kullanıcı adı ve şifre doğru girildi.");
+                //res.send("Kullanıcı adı ve şifre doğru girildi.");
+                res.json({"Response" : "Kullanıcı adı ve şifre doğru girildi."} );
+            }else{
+                console.log("Şifre hatalıdır.");
+                res.json({"Response" : "Kullanıcı adı veya şifre yanlış girilmiştir."} );
+            }
+        }
 
-        res.send("DB_hash");
+        
     } catch (error) {
         res.send(error);
     }
@@ -138,6 +161,10 @@ app.post("/api/v1/login", async (req,res) =>{
 
 app.get("/admin", (req,res) => {
     res.send("Welcome Admin Panel");
+});
+
+app.get("/v1",(req,res) => {
+    res.render("abc.ejs");
 });
 
 

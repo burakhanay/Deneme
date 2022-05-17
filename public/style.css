@@ -1,0 +1,162 @@
+body {
+    background:#bdcfdd;
+    font-family: "Roboto", Candara, "Bitstream Vera Sans", "DejaVu Sans", "Bitstream Vera Sans", "Trebuchet MS", Verdana, "Verdana Ref", sans serif;
+    font-size:16px;
+    color:#444;
+}
+ul, li {
+    margin:0;
+    padding:0;
+    list-style-type:none;
+}
+
+h1 {
+    margin:0;
+    padding:10px 0;
+    font-size:24px;
+    text-align:center;
+    background:#eff4f7;
+    border-bottom:1px solid #dde0e7;
+    box-shadow:0 -1px 0 #fff inset;
+    border-radius:5px 5px 0 0; /* otherwise we get some uncut corners with container div */
+    text-shadow:1px 1px 0 #fff;
+}
+
+#container {
+    width:400px;
+    padding:0px;
+    background:#e2dfdf;
+    margin:0 auto;
+    border:1px solid #c4cddb;
+    border-top-color:#d3dbde;
+    border-bottom-color:#bfc9dc;
+    box-shadow:0 1px 1px #ccc;
+    border-radius:5px;
+    position:relative;
+}
+
+form ul li {
+    margin:10px 20px;
+}
+#pswd_info {
+    text-align:left;
+    margin:0 0 10px 0;
+    padding:0;
+    font-weight:normal;
+    position:absolute;
+    bottom:0px;
+    left:410px;
+    width:375px;
+    padding:12px;
+    background:#fefefe;
+    font-size:.875em;
+    border-radius:5px;
+    box-shadow:0 1px 3px #ccc;
+    border:1px solid #ddd;
+    display: none;
+}
+#pswd_error {
+    text-align:left;
+    margin:0 0 10px 0;
+    padding:0;
+    font-weight:normal;
+    position:absolute;
+    bottom:10px;
+    left:410px;
+    width:175px;
+    padding:12px;
+    background:#fefefe;
+    font-size:.875em;
+    border-radius:5px;
+    box-shadow:0 1px 3px #ccc;
+    border:1px solid #ddd;
+    display: none;
+}
+#pswd_success {
+    text-align:left;
+    margin:0 0 10px 0;
+    padding:0;
+    font-weight:normal;
+    position:absolute;
+    bottom:10px;
+    left:410px;
+    width:175px;
+    padding:12px;
+    background:#fefefe;
+    font-size:.875em;
+    border-radius:5px;
+    box-shadow:0 1px 3px #ccc;
+    border:1px solid #ddd;
+    display: none;
+}
+input {
+    padding:10px 10px;
+    border:1px solid #d5d9da;
+    border-radius:5px;
+    box-shadow: 0 0 5px #e8e9eb inset;
+    width:378px; /* 400 (#container) - 40 (li margins) -  10 (span paddings) - 20 (input paddings) - 2 (input borders) */
+    font-size:1em;
+    outline:0; /* remove webkit focus styles */
+}
+input:focus {
+    border:1px solid #b9d4e9;
+    border-top-color:#b6d5ea;
+    border-bottom-color:#b8d4ea;
+    box-shadow:0 0 5px #b9d4e9;
+}
+
+#kayit {
+    color: rgb(34, 12, 5);
+    background-color: darkgrey;
+    width: 100%;
+}
+#pswd_info::before {
+    content: "\25C0";
+    position:absolute;
+    top:45%;
+    left:-4%;
+    font-size:14px;
+    line-height:14px;
+    color:#ddd;
+    text-shadow:none;
+    display:block;
+}
+#pswd_error::before {
+    content: "\25C0";
+    position:absolute;
+    top:40%;
+    left:-4%;
+    font-size:14px;
+    line-height:14px;
+    color:#ddd;
+    text-shadow:none;
+    display:block;
+}
+#pswd_success::before {
+    content: "\25C0";
+    position:absolute;
+    top:40%;
+    left:-4%;
+    font-size:14px;
+    line-height:14px;
+    color:#ddd;
+    text-shadow:none;
+    display:block;
+}
+#pswd_info h4 {
+    margin:0 0 10px 0;
+    padding:0;
+    font-weight:normal;
+}
+.invalid {
+    /*background:url(../images/invalid.png) no-repeat 0 50%;*/
+    padding-left:22px;
+    line-height:24px;
+    color:#ec3f41;
+}
+.valid {
+    /*background:url(../images/valid.png) no-repeat 0 50%;*/
+    padding-left:22px;
+    line-height:24px;
+    color:#3a7d34;
+}
